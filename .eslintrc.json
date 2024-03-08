@@ -1,0 +1,47 @@
+{
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es2021": true
+    },
+    "extends": ["eslint:recommended", "@electron-toolkit/eslint-config-prettier"],
+    "parserOptions": {
+        "ecmaVersion": "latest"
+    },
+    "rules": {
+        "indent": [
+            "error",
+            "tab",
+            {
+              "SwitchCase": 1,
+              "ignoredNodes": ["ConditionalExpression"]
+            }
+        ],
+        "linebreak-style": [
+            "error",
+            "windows"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "never"
+        ],
+        "linebreak-style": "off",
+        "arrow-parens": "off",
+        "arrow-body-style": "off",
+        "object-curly-newline": "off",
+        "function-paren-newline": "off",
+        "space-before-function-paren": 0,
+        "no-mixed-operators": "off",
+        "no-plusplus": "off",
+        "no-undef": 0,
+        "no-unused-vars": 0,
+        "no-inner-declarations": 0,
+        "no-redeclare": 0,
+        "prefer-destructuring": "off",
+        "prettier/prettier": ["error"]
+    }
+}

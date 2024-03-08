@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/app.css">    
+    <title>raduet.telegram.client</title>
+  </head>
+  <body class="bg-dark">
+
+    <section class="h-100 h-custom>
+      <div class="container py-4 h-100 bg-dark">
+
+        <div class="row d-flex justify-content-center align-items-center h-100 w-100">
+          <div class="container w-50">
+            
+            <div class="col-lg-8 col-xl-6">
+              <div class="card rounded-3 min-vh-50 bg-white">
+
+                <div id="yieldLoadingCard" class="card-body p-4 p-md-5">
+                  <div class="d-flex align-items-center">
+                    <strong>Loading...</strong>
+                    <div id="yieldLoader" class="spinner-border ms-auto"></div>
+                  </div>
+                </div>
+
+                <div id="phoneNumberCard" class="card-body p-4 p-md-5 d-none">
+
+                  <p class="lead">Your Phone Number</p>
+                  <p>Please confirm your country code and enter your phone number.</p>
+                  
+                  <div class="input-group has-validation">
+                    <form id="phoneNumberForm" class="form-floating mt-3">
+                      <input type="phone" id="phoneNumber" class="form-control" placeholder="">
+                      <label for="phoneNumber">Phone</label>
+                    </form>                  
+                    <div class="invalid-feedback">
+                      Invalid number format.
+                    </div>                    
+                  </div>
+
+                  <button type="button" id="phoneNextButton" class="btn btn-dark btn-lg w-100 mt-3">Next</button>                    
+                  <p class="text-center mt-5"><a href="#">Quick log in using QR code</a></p>
+                  
+                  <p class="placeholder-glow">
+                    <span class="placeholder col-12 placeholder-xs rounded"></span>
+                  </p>
+
+                </div>
+              
+                <div id="smsConfirmCard" class="card-body p-4 p-md-5 d-none">
+
+                  <p id="smsSendTo" class="lead"></p>
+                  <p>A code was sent via telegram to you other devices, if you have any connected.</p>
+                  
+                  <div class="input-group has-validation">
+                    <form id="smsCodeForm" class="form-floating mt-3">
+                      <input type="password" id="smsCode" class="form-control" placeholder="">
+                      <label for="smsCode">Confirmation code</label>
+                    </form>                  
+                    <div class="invalid-feedback">
+                      Invalid confirmation format.
+                    </div>                    
+                  </div>
+
+                  <button type="button" id="smsNextButton" class="btn btn-dark btn-lg w-100 mt-3">Next</button>                    
+                  <p class="text-center mt-5"><a href="#">Quick log in using QR code</a></p>
+                  
+                  <p class="placeholder-glow">
+                    <span class="placeholder col-12 placeholder-xs rounded"></span>
+                  </p>
+
+                </div>
+
+                <div id="passwordCard" class="card-body p-4 p-md-5 d-none">
+
+                  <p class="lead">Password</p>
+                  <p>You have enabled Two-Step Verification, so your account is protected with an additional password.</p>
+                  
+                  <div class="input-group has-validation">
+                    <form id="passwordForm" class="form-floating mt-3">
+                      <input type="password" id="password" class="form-control" placeholder="">
+                      <label for="password">Password</label>
+                    </form>                  
+                    <div class="invalid-feedback">
+                      Invalid password format.
+                    </div>                    
+                  </div>
+
+                  <button type="button" id="passwordNextButton" class="btn btn-dark btn-lg w-100 mt-3">Next</button>                    
+                  <p class="text-center mt-5"><a href="#">Quick log in using QR code</a></p>
+                  
+                  <p class="placeholder-glow">
+                    <span class="placeholder col-12 placeholder-xs rounded"></span>
+                  </p>
+
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>  
+    </section>
+
+    <script src="./signin.js" type="text/javascript"></script>
+  </body>
+</html>
