@@ -45,7 +45,8 @@ const destroySigninIfOpened = () => {
 let mainWindow
 const createMainWindow = () => {
   mainWindow = new BrowserWindow({
-    resizable: false,
+    minWidth: 800,
+    minHeight: 600,
     width: 1024,
     height: 768,
     autoHideMenuBar: true,
@@ -132,7 +133,7 @@ if (!gotTheLock) {
 }
 
 /**
- * Application start
+ * Application Start
  */
 app.whenReady().then(async () => {
   await init()
@@ -151,34 +152,34 @@ app.on('window-all-closed', () => {
  */
 function serializeAllObjects(obj) {
     const visited = new WeakSet();
-
     function serialize(value) {
         if (typeof value !== 'object' || value === null) {
             return value; // Примитивное значение
         }
-
         if (visited.has(value)) {
             return '[Circular]'; // Обработка зацикливания
         }
-
         visited.add(value);
-
         if (Array.isArray(value)) {
             return value.map(item => serialize(item)); // Обработка массива
         }
-
         const serializedObj = {};
         for (const key in value) {
             serializedObj[key] = serialize(value[key]); // Рекурсивный обход объекта
         }
         return serializedObj;
     }
-
     return serialize(obj);
 }
+
 ipcMain.on('get-all-chats', async (e) => {
-  const chats = await client.getDialogs();
-  const serializedObj = serializeAllObjects(chats);
-  const jsonString = JSON.stringify(serializedObj);
-  e.sender.send('get-all-chats', jsonString);
+  const chats = await client.getDialogs()
+  const serializedObj = serializeAllObjects(chats)
+  const jsonString = JSON.stringify(serializedObj)
+  e.sender.send('get-all-chats', jsonString)
+})
+ipcMain.on('get-my-profile-photo', async (e) => {
+  const buffer = await client.downloadProfilePhoto('me', { isBig: false })
+  const base64Image = buffer.toString('base64');
+  e.sender.send('get-my-profile-photo', base64Image);
 })

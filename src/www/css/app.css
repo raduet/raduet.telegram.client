@@ -23,9 +23,37 @@ body {
     overflow: auto;
     cursor: ew-resize; /* Устанавливаем курсор мыши в виде ew-resize */
 }
+#sidebar::-webkit-scrollbar {
+    width: 5px; /* Устанавливаем ширину скроллбара */
+    border-radius: 10px; /* Закругляем углы скроллбара */
+}
+#sidebar::-webkit-scrollbar-thumb {
+    background-color: #888; /* Устанавливаем цвет ползунка */
+    border-radius: 10px; /* Закругляем углы ползунка */    
+}
+#sidebar::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* Устанавливаем цвет трека */
+}
 
 #content {
     height: 100vh;
     background-color: lightblue;
     overflow: auto;
+}
+
+.dark-l1 {
+    background-color: var(--bs-gray-800);
+}
+
+.chats-list .align-text {
+    display: flex;
+    justify-content: space-between;
+}
+.chats-list .small-text {
+    font-size: 0.8rem;
+}
+.chats-list .placeholder-img {
+    width: 50px;
+    height: 50px;
+    background-color: gray;
 }
