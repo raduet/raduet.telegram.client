@@ -13,3 +13,19 @@ body {
 #yieldLoader {
 	width: 3rem; height: 3rem;
 }
+
+#sidebar {
+    width: 300px;
+    min-width: 250px; /* Устанавливаем минимальную ширину в 100px */
+    max-width: 700px; /* Устанавливаем максимальную ширину в 300px */
+    height: 100vh;
+    background-color: lightgray;
+    overflow: auto;
+    cursor: ew-resize; /* Устанавливаем курсор мыши в виде ew-resize */
+}
+
+#content {
+    height: 100vh;
+    background-color: lightblue;
+    overflow: auto;
+}

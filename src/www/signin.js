@@ -1,4 +1,3 @@
-
 const yieldLoadingCard = document.getElementById('yieldLoadingCard'),
 
       phoneNumberCard = document.getElementById('phoneNumberCard')
@@ -60,3 +59,11 @@ passwordNextButton.addEventListener('click', (e) => {
     password.classList.add('is-invalid')
   }   
 })
+
+document.addEventListener('keypress', (e) => {
+  if (e.keyCode === 13) {
+    e.preventDefault()
+    document.querySelector('.card-body:not(.d-none)')
+            .querySelector('button').click()
+  }
+});
