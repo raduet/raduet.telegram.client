@@ -45,15 +45,27 @@ body {
     background-color: var(--bs-gray-800);
 }
 
-.chats-list .align-text {
+#chats-list .text-col {
+    width: calc(100% - 75px); /* Установить ширину второй колонки, учитывая ширину первой колонки с фото */    
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;    
+}
+#chats-list .align-text {
     display: flex;
     justify-content: space-between;
 }
-.chats-list .small-text {
+#chats-list .small-text {
     font-size: 0.8rem;
 }
-.chats-list .placeholder-img {
+#chats-list .placeholder-img {
     width: 50px;
     height: 50px;
     background-color: gray;
+    animation: gradientAnimation 2s infinite alternate;
+}
+@keyframes gradientAnimation {
+    0% { background-color: gray; }
+    50% { background-color: silver; }
+    100% { background-color: gray; }
 }

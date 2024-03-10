@@ -172,6 +172,11 @@ function serializeAllObjects(obj) {
     return serialize(obj);
 }
 
+ipcMain.on('get-chat-photo', async (e, chatId) => {
+  const buffer = await client.downloadProfilePhoto(chatId, { isBig: false })
+  const base64Image = buffer.toString('base64');
+  e.sender.send('get-chat-photo', base64Image)
+})
 ipcMain.on('get-all-chats', async (e) => {
   const chats = await client.getDialogs()
   const serializedObj = serializeAllObjects(chats)
